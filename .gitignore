@@ -1,0 +1,10 @@
+**/Library/
+**/Temp/
+
+*.apk
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.csproj
