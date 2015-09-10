@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ghostpunch.OnlyDown.Common;
+﻿using Ghostpunch.OnlyDown.Common.ViewModels;
 using Ghostpunch.OnlyDown.Game.Views;
 using Lean;
 using UnityEngine;
@@ -15,6 +11,8 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
         public PlayerDigSignal PlayerDig { get; set; }
 
         private Transform _transform = null;
+
+        private Vector3 _currentDirection = Vector3.right;
 
         public override void OnRegister()
         {
@@ -36,6 +34,16 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
         private void OnTap(LeanFinger obj)
         {
             PlayerDig.Dispatch(_transform.localPosition);
+        }
+
+        void FixedUpdate()
+        {
+            _transform.Translate(_currentDirection * View._moveSpeed * Time.deltaTime);
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            _currentDirection *= -1f;
         }
     }
 }

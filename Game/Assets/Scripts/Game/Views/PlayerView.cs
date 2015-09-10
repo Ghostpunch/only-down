@@ -8,5 +8,6 @@ namespace Ghostpunch.OnlyDown.Game.Views
 {
     public class PlayerView : ViewBase
     {
+        public float _moveSpeed = 1f;
     }
 }

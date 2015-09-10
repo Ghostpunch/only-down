@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Ghostpunch.OnlyDown.Menu.Views
 {
-    public class MainPanelView : ViewBase
+    public class MainMenuView : ViewBase
     {
         [SerializeField]
         private ButtonView _startButton = null;

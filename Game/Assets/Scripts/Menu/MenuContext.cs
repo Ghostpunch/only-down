@@ -1,14 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
-using strange.extensions.context.impl;
-using strange.extensions.context.api;
-using strange.extensions.command.api;
-using strange.extensions.command.impl;
-using Ghostpunch.OnlyDown.Menu.Commands;
-using Ghostpunch.OnlyDown.Common;
+﻿using Ghostpunch.OnlyDown.Common;
 using Ghostpunch.OnlyDown.Common.Signals;
-using Ghostpunch.OnlyDown.Menu.Views;
+using Ghostpunch.OnlyDown.Common.ViewModels;
 using Ghostpunch.OnlyDown.Common.Views;
+using Ghostpunch.OnlyDown.Menu.Commands;
+using Ghostpunch.OnlyDown.Menu.ViewModels;
+using Ghostpunch.OnlyDown.Menu.Views;
+using strange.extensions.context.api;
+using strange.extensions.context.impl;
+using UnityEngine;
 
 namespace Ghostpunch.OnlyDown.Menu
 {
@@ -39,10 +38,9 @@ namespace Ghostpunch.OnlyDown.Menu
             }
 
             commandBinder.Bind<StartSignal>().To<MenuStartCommand>();
-            commandBinder.Bind<GameStartSignal>().To<GameStartCommand>();
 
-            mediationBinder.Bind<MainPanelView>().To<MainPanelMediator>();
-            mediationBinder.Bind<ButtonView>().To<ButtonMediator>();
+            mediationBinder.Bind<MainMenuView>().To<MainMenuViewModel>();
+            mediationBinder.Bind<ButtonView>().To<ButtonViewModel>();
         }
     }
 }

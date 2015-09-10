@@ -26,6 +26,17 @@ namespace Ghostpunch.OnlyDown.Game.Commands
                 // Bind it so we can use it elsewhere
                 injectionBinder.Bind<GameObject>().ToValue(gameField).ToName(GameElement.Environment);
             }
+
+            if (injectionBinder.GetBinding<GameObject>(GameElement.Player) == null)
+            {
+                var prototype = Resources.Load<GameObject>(GameElement.Player.ToString());
+                var playerGO = GameObject.Instantiate<GameObject>(prototype);
+
+                playerGO.transform.localPosition = Vector3.zero;
+                playerGO.transform.parent = ContextView.transform;
+
+                injectionBinder.Bind<GameObject>().ToValue(playerGO).ToName(GameElement.Player);
+            }
         }
     }
 }

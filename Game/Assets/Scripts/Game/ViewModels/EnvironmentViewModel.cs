@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ghostpunch.OnlyDown.Common;
+﻿using Ghostpunch.OnlyDown.Common.ViewModels;
 using Ghostpunch.OnlyDown.Game.Views;
 using strange.extensions.pool.api;
 using UnityEngine;
@@ -80,6 +76,8 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
             var yCoord = (int)(playerLocation.y + View._gridHeight * 0.5f);
 
             DestroySand(_levelGrid[xCoord, yCoord + 1]);
+
+            View._animateUp.Dispatch();
         }
 
         private void DestroySand(GameObject sandTile)

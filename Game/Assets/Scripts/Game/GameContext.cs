@@ -53,8 +53,8 @@ namespace Ghostpunch.OnlyDown.Game
             }
 
             commandBinder.Bind<GameStartSignal>()
-                .To<CleanupCommand>()
                 .To<SetupLevelCommand>()
+                .To<CleanupCommand>()
                 .To<StartLevelCommand>()
                 .InSequence();
 

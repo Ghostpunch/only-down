@@ -5,7 +5,7 @@ using System.Text;
 using Ghostpunch.OnlyDown.Common.Views;
 using strange.extensions.mediation.impl;
 
-namespace Ghostpunch.OnlyDown.Common
+namespace Ghostpunch.OnlyDown.Common.ViewModels
 {
     public abstract class ViewModelBase<V> : Mediator where V : ViewBase
     {

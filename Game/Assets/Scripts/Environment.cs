@@ -11,28 +11,28 @@ public class Environment : MonoBehaviour
     public Transform _sandParent = null;
     public Material _sandMaterial = null;
 
-    private Player _player = null;
+    //private Player _player = null;
     private GameObject[,] _levelGrid = null;
 
     // Use this for initialization
     void Start()
     {
-        _player = FindObjectOfType<Player>();
+        //_player = FindObjectOfType<Player>();
 
         BuildLevel();
     }
 
-    private int[] GetPlayerGridLocation()
-    {
-        if (_player == null)
-            throw new MissingReferenceException("Player object not found.");
+    //private int[] GetPlayerGridLocation()
+    //{
+    //    if (_player == null)
+    //        throw new MissingReferenceException("Player object not found.");
 
-        var playerPosition = _player.CurrentPosition;
-        var xCoord = playerPosition.x + _gridWidth * 0.5f;
-        var yCoord = playerPosition.y + _gridHeight * 0.5f;
+    //    var playerPosition = _player.CurrentPosition;
+    //    var xCoord = playerPosition.x + _gridWidth * 0.5f;
+    //    var yCoord = playerPosition.y + _gridHeight * 0.5f;
 
-        return new int[] { (int)xCoord, (int)yCoord };
-    }
+    //    return new int[] { (int)xCoord, (int)yCoord };
+    //}
 
     private void BuildLevel()
     {
@@ -56,18 +56,18 @@ public class Environment : MonoBehaviour
             }
         }
 
-        var playerPos = GetPlayerGridLocation();
-        for (int x = 0; x < _gridWidth; ++x)
-        {
-            var position = _levelGrid[x, playerPos[1] + 1].transform.position;
-            position.z = 0;
-            _levelGrid[x, playerPos[1] + 1].transform.position = position;
-        }
+        //var playerPos = GetPlayerGridLocation();
+        //for (int x = 0; x < _gridWidth; ++x)
+        //{
+        //    var position = _levelGrid[x, playerPos[1] + 1].transform.position;
+        //    position.z = 0;
+        //    _levelGrid[x, playerPos[1] + 1].transform.position = position;
+        //}
     }
 
     public void Dig()
     {
-        var playerPos = GetPlayerGridLocation();
+        var playerPos = new int[2];// GetPlayerGridLocation();
 
         Destroy(_levelGrid[playerPos[0], playerPos[1] + 1]);
         _levelGrid[playerPos[0], playerPos[1] + 1] = null;
