@@ -80,10 +80,6 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
             var yCoord = (int)((View._gridHeight * 0.5f) - playerLocation.y);
             var index = xCoord + View._gridWidth * yCoord;
 
-            Debug.Log(String.Format("Real: ({0})", playerLocation));
-            Debug.Log(String.Format("Grid: ({0}, {1})", xCoord, yCoord));
-            Debug.Log(String.Format("Grid index: {0}, maxCount: {1}", index, _levelGrid.Length));
-
             DestroySand(_levelGrid[xCoord + View._gridWidth * (yCoord + 1)]);
 
             View._animateUp.Dispatch();

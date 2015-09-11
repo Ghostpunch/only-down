@@ -42,7 +42,7 @@ namespace Ghostpunch.OnlyDown.Game.Views
 
         private void AnimateDig()
         {
-            StartCoroutine(AnimateDigCR(.20f));
+            StartCoroutine(AnimateDigCR(.25f));
         }
 
         private IEnumerator AnimateDigCR(float animationLength)
@@ -50,13 +50,15 @@ namespace Ghostpunch.OnlyDown.Game.Views
             _isRunning = false;
             var isAnimating = true;
             var elapsedTime = 0f;
+            var currentPosition = _transform.localPosition;
+            var goalPosition = currentPosition + Vector3.down;
 
-            while (isAnimating && elapsedTime < animationLength)
+            while (elapsedTime < 1)
             {
                 yield return new WaitForEndOfFrame();
 
-                _transform.Translate(Vector3.down * _moveSpeed * Time.deltaTime);
-                elapsedTime += Time.deltaTime;
+                _transform.localPosition = Vector3.Lerp(currentPosition, goalPosition, elapsedTime);
+                elapsedTime += Time.deltaTime / animationLength;
             }
 
             _isRunning = true;
