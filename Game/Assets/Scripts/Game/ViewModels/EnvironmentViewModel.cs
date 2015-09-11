@@ -1,4 +1,5 @@
-﻿using Ghostpunch.OnlyDown.Common.ViewModels;
+﻿using System;
+using Ghostpunch.OnlyDown.Common.ViewModels;
 using Ghostpunch.OnlyDown.Game.Views;
 using strange.extensions.pool.api;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
         [Inject(GameElement.SandPool)]
         public IPool<GameObject> SandPool { get; set; }
 
-        private GameObject[,] _levelGrid = null;
+        private GameObject[] _levelGrid = null;
         private Transform _transform = null;
 
         private static Vector3 GTFO_POS = new Vector3(1000f, 0, 1000f);
@@ -31,10 +32,10 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
 
         private void GenerateLevel()
         {
-            var startingX = (int)(transform.localPosition.x - View._gridWidth * 0.5f);
-            var startingY = (int)(transform.localPosition.y + View._gridHeight * 0.5f);
+            var startingX = (transform.localPosition.x - View._gridWidth * 0.5f) + 0.5f;
+            var startingY = (transform.localPosition.y + View._gridHeight * 0.5f) - 0.5f;
 
-            _levelGrid = new GameObject[View._gridWidth, View._gridHeight];
+            _levelGrid = new GameObject[View._gridWidth * View._gridHeight];
 
             var sandParent = _transform.FindChild("Sand") ?? CreateSandParent("Sand", _transform);
 
@@ -66,16 +67,24 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
                 sandGO.transform.parent = parent;
                 sandGO.SetActive(true);
 
-                _levelGrid[x, yCoord] = sandGO;
+                _levelGrid[x + View._gridWidth * yCoord] = sandGO;
             }
         }
 
         private void OnPlayerDig(Vector3 playerLocation)
         {
+            // i = x + gridWidth * y;
+            // x = i % gridWidth;
+            // y = i / gridWidth;
             var xCoord = (int)(playerLocation.x + View._gridWidth * 0.5f);
-            var yCoord = (int)(playerLocation.y + View._gridHeight * 0.5f);
+            var yCoord = (int)((View._gridHeight * 0.5f) - playerLocation.y);
+            var index = xCoord + View._gridWidth * yCoord;
 
-            DestroySand(_levelGrid[xCoord, yCoord + 1]);
+            Debug.Log(String.Format("Real: ({0})", playerLocation));
+            Debug.Log(String.Format("Grid: ({0}, {1})", xCoord, yCoord));
+            Debug.Log(String.Format("Grid index: {0}, maxCount: {1}", index, _levelGrid.Length));
+
+            DestroySand(_levelGrid[xCoord + View._gridWidth * (yCoord + 1)]);
 
             View._animateUp.Dispatch();
         }

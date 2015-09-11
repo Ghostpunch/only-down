@@ -12,8 +12,6 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
 
         private Transform _transform = null;
 
-        private Vector3 _currentDirection = Vector3.right;
-
         public override void OnRegister()
         {
             base.OnRegister();
@@ -34,16 +32,7 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
         private void OnTap(LeanFinger obj)
         {
             PlayerDig.Dispatch(_transform.localPosition);
-        }
-
-        void FixedUpdate()
-        {
-            _transform.Translate(_currentDirection * View._moveSpeed * Time.deltaTime);
-        }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            _currentDirection *= -1f;
+            View._dig.Dispatch();
         }
     }
 }
