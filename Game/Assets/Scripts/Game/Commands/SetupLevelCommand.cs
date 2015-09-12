@@ -32,7 +32,7 @@ namespace Ghostpunch.OnlyDown.Game.Commands
                 var prototype = Resources.Load<GameObject>(GameElement.Player.ToString());
                 var playerGO = GameObject.Instantiate<GameObject>(prototype);
 
-                playerGO.transform.localPosition = Vector3.up * 0.5f;
+                playerGO.transform.localPosition = Vector3.up * 5.5f;
                 playerGO.transform.parent = ContextView.transform;
 
                 injectionBinder.Bind<GameObject>().ToValue(playerGO).ToName(GameElement.Player);

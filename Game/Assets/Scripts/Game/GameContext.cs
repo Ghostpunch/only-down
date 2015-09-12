@@ -37,12 +37,15 @@ namespace Ghostpunch.OnlyDown.Game
             // Instead of destroying instances and reinstantiating them, which is expensive,
             // we "checkout" the instances from a pool, then return them when done.
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.SandPool);
+            injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.ItemPool);
+            injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.EnemyPool);
 
             // Signals
             injectionBinder.Bind<GameStartedSignal>().ToSingleton();
             injectionBinder.Bind<LevelStartedSignal>().ToSingleton();
 
             injectionBinder.Bind<PlayerDigSignal>().ToSingleton();
+            injectionBinder.Bind<LevelScrollSignal>().ToSingleton();
             #endregion
 
             #region Commands
@@ -64,6 +67,9 @@ namespace Ghostpunch.OnlyDown.Game
 
             mediationBinder.Bind<EnvironmentView>().To<EnvironmentViewModel>();
             mediationBinder.Bind<PlayerView>().To<PlayerViewModel>();
+            mediationBinder.Bind<ScrollView>().To<ScrollViewModel>();
+            mediationBinder.Bind<ItemView>().To<ItemViewModel>();
+            mediationBinder.Bind<EnemyView>().To<EnemyViewModel>();
 
             #endregion
         }
@@ -71,8 +77,16 @@ namespace Ghostpunch.OnlyDown.Game
         protected override void postBindings()
         {
             var sandPool = injectionBinder.GetInstance<IPool<GameObject>>(GameElement.SandPool);
-            sandPool.instanceProvider = new ResourceInstanceProvider("sand", LayerMask.NameToLayer("Default"));
+            sandPool.instanceProvider = new ResourceInstanceProvider("sand", LayerMask.NameToLayer(Layers.Default));
             sandPool.inflationType = PoolInflationType.INCREMENT;
+
+            var itemPool = injectionBinder.GetInstance<IPool<GameObject>>(GameElement.ItemPool);
+            itemPool.instanceProvider = new ResourceInstanceProvider("item", LayerMask.NameToLayer(Layers.Default));
+            itemPool.inflationType = PoolInflationType.INCREMENT;
+
+            var enemyPool = injectionBinder.GetInstance<IPool<GameObject>>(GameElement.EnemyPool);
+            enemyPool.instanceProvider = new ResourceInstanceProvider("enemy", LayerMask.NameToLayer(Layers.Default));
+            enemyPool.inflationType = PoolInflationType.INCREMENT;
 
             base.postBindings();
         }

@@ -8,6 +8,7 @@ namespace Ghostpunch.OnlyDown.Game
     public enum GameElement
     {
         EnemyPool,
+        ItemPool,
         SandPool,
         Environment,     // Injection name of the GameObject that parents the enemies/sand/player/etc
         Player,         // Injection name of the player

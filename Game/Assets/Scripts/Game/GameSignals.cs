@@ -28,4 +28,6 @@ namespace Ghostpunch.OnlyDown.Game
     /// This signal is dispatched when the player attempts to dig
     /// </summary>
     public class PlayerDigSignal : Signal<Vector3> { }
+
+    public class LevelScrollSignal : Signal<float, int> { }
 }

@@ -48,7 +48,6 @@ namespace Ghostpunch.OnlyDown.Game.Views
         private IEnumerator AnimateDigCR(float animationLength)
         {
             _isRunning = false;
-            var isAnimating = true;
             var elapsedTime = 0f;
             var currentPosition = _transform.localPosition;
             var goalPosition = currentPosition + Vector3.down;
