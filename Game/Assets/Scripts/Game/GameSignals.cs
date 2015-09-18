@@ -29,5 +29,7 @@ namespace Ghostpunch.OnlyDown.Game
     /// </summary>
     public class PlayerDigSignal : Signal<Vector3> { }
 
+    public class EnemyPlayerCollisionSignal : Signal<EnemyView> { }
+
     public class LevelScrollSignal : Signal<float, int> { }
 }

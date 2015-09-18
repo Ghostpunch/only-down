@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
-using strange.extensions.context.impl;
-using Ghostpunch.OnlyDown.Common;
+﻿using Ghostpunch.OnlyDown.Common;
+using Ghostpunch.OnlyDown.Common.Commands;
+using Ghostpunch.OnlyDown.Menu.ViewModels;
 using strange.extensions.context.api;
-using Ghostpunch.OnlyDown.Common.Signals;
+using strange.extensions.context.impl;
+using UnityEngine;
 
 namespace Ghostpunch.OnlyDown.Main
 {
@@ -16,12 +16,27 @@ namespace Ghostpunch.OnlyDown.Main
         {
             base.mapBindings();
 
+            #region Injections
+
             if (Context.firstContext == this)
             {
+                injectionBinder.Bind<GameStartSignal>().ToSingleton().CrossContext();
+                injectionBinder.Bind<GameOverSignal>().ToSingleton().CrossContext();
+                injectionBinder.Bind<ShutdownSignal>().ToSingleton().CrossContext();
 
+                injectionBinder.Bind<MenuViewModel>().CrossContext();
+                injectionBinder.Bind<MainMenuViewModel>().CrossContext();
+                injectionBinder.Bind<GameOverViewModel>().CrossContext();
             }
 
-            injectionBinder.Bind<StartSignal>().To<MainStartupCommand>();
+            #endregion
+
+            #region Commands
+
+            commandBinder.Bind<StartSignal>().To<MainStartupCommand>();
+            commandBinder.Bind<ShutdownSignal>().To<QuitApplicationCommand>();
+
+            #endregion
         }
     }
 }

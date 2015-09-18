@@ -9,13 +9,8 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
 {
     public class EnemyViewModel : ViewModelBase<EnemyView>
     {
-        [Inject(GameElement.Player)]
-        public GameObject Player { get; set; }
-
-        [Inject(GameElement.EnemyPool)]
-        public IPool<GameObject> EnemyPool { get; set; }
-
-        private static Vector3 GTFO_POS = new Vector3(1000f, 0, 1000f);
+        [Inject]
+        public EnemyPlayerCollisionSignal EnemyPlayerCollision { get; set; }
 
         public override void OnRegister()
         {
@@ -26,11 +21,7 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
 
         private void OnEnemyTouch()
         {
-            gameObject.SetActive(false);
-            gameObject.transform.localPosition = GTFO_POS;
-            EnemyPool.ReturnInstance(gameObject);
-
-            Player.SetActive(false);
+            EnemyPlayerCollision.Dispatch(View);
         }
     }
 }

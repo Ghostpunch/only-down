@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ghostpunch.OnlyDown.Common.Signals;
+using Ghostpunch.OnlyDown.Common;
 using strange.extensions.command.impl;
 
 namespace Ghostpunch.OnlyDown.Game.Commands
@@ -17,7 +17,7 @@ namespace Ghostpunch.OnlyDown.Game.Commands
             // I might want some debug data to be initialized here
 
             // For now I'm just going to kick start the game
-            GameStart.Dispatch();
+            //GameStart.Dispatch();
         }
     }
 }

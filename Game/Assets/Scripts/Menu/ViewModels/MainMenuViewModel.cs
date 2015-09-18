@@ -1,21 +1,41 @@
-﻿using Ghostpunch.OnlyDown.Common.ViewModels;
+﻿using Ghostpunch.OnlyDown.Common;
+using Ghostpunch.OnlyDown.Common.Commands;
+using Ghostpunch.OnlyDown.Common.ViewModels;
 using Ghostpunch.OnlyDown.Menu.Views;
 using UnityEngine;
 
 namespace Ghostpunch.OnlyDown.Menu.ViewModels
 {
-    public class MainMenuViewModel : ViewModelBase<MainMenuView>
+    public class MainMenuViewModel : ViewModelBase
     {
-        public override void OnRegister()
-        {
-            base.OnRegister();
+        [Inject]
+        public GameStartSignal GameStart { get; set; }
 
-            View._startSignal.AddListener(OnStartGame);
+        [Inject]
+        public ShutdownSignal Shutdown { get; set; }
+
+        private RelayCommand _startButtonPressedCommand;
+        public RelayCommand StartButtonPressedCommand
+        {
+            get
+            {
+                return _startButtonPressedCommand ?? (_startButtonPressedCommand = new RelayCommand(() =>
+                {
+                    GameStart.Dispatch();
+                }));
+            }
         }
 
-        private void OnStartGame()
+        private RelayCommand _quitButtonPressedCommand;
+        public RelayCommand QuitButtonPressedCommand
         {
-            Application.LoadLevel(1);
+            get
+            {
+                return _quitButtonPressedCommand ?? (_quitButtonPressedCommand = new RelayCommand(() =>
+                {
+                    Shutdown.Dispatch();
+                }));
+            }
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections;
 using Ghostpunch.OnlyDown.Common;
 using strange.extensions.context.api;
-using Ghostpunch.OnlyDown.Common.Signals;
 using strange.extensions.context.impl;
 using Ghostpunch.OnlyDown.Game.Models;
 using Ghostpunch.OnlyDown.Game.Commands;
@@ -28,6 +27,10 @@ namespace Ghostpunch.OnlyDown.Game
             if (Context.firstContext == this)
             {
                 injectionBinder.Bind<IGameModel>().To<GameModel>().ToSingleton();
+
+                injectionBinder.Bind<GameStartSignal>().ToSingleton();
+                injectionBinder.Bind<GameOverSignal>().ToSingleton();
+                injectionBinder.Bind<ShutdownSignal>().ToSingleton();
             }
 
             injectionBinder.Bind<IGameConfig>().To<GameConfig>().ToSingleton();
@@ -50,14 +53,12 @@ namespace Ghostpunch.OnlyDown.Game
 
             #region Commands
 
-            if (Context.firstContext == this)
-            {
-                commandBinder.Bind<StartSignal>().To<GameModuleStartCommand>();
-            }
+            commandBinder.Bind<StartSignal>().To<GameModuleStartCommand>();
+            commandBinder.Bind<EnemyPlayerCollisionSignal>().To<EnemyPlayerCollisionCommand>();
 
             commandBinder.Bind<GameStartSignal>()
-                .To<SetupLevelCommand>()
                 .To<CleanupCommand>()
+                .To<SetupLevelCommand>()
                 .To<StartLevelCommand>()
                 .InSequence();
 

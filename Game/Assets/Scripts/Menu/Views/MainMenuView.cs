@@ -2,31 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ghostpunch.OnlyDown.Common;
 using Ghostpunch.OnlyDown.Common.Views;
+using Ghostpunch.OnlyDown.Menu.ViewModels;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Ghostpunch.OnlyDown.Menu.Views
 {
-    public class MainMenuView : ViewBase
+    public class MainMenuView : View
     {
-        [SerializeField]
-        private ButtonView _startButton = null;
+        public Button _startButton, _quitButton;
 
-        internal Signal _startSignal = new Signal();
+        [Inject]
+        public MainMenuViewModel VM { get; set; }
 
-        internal override void Initialize()
+        protected override void Start()
         {
-            base.Initialize();
+            base.Start();
 
             if (_startButton != null)
-                _startButton._clickSignal.AddListener(OnStartClick);
+                _startButton.onClick.AddListener(OnStartClick);
+
+            if (_quitButton != null)
+                _quitButton.onClick.AddListener(OnQuit);
         }
 
         private void OnStartClick()
         {
-            _startSignal.Dispatch();
+            VM.StartButtonPressedCommand.Execute(null);
+        }
+
+        private void OnQuit()
+        {
+            VM.QuitButtonPressedCommand.Execute(null);
         }
     }
 }

@@ -4,7 +4,7 @@ using strange.extensions.context.impl;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
-using Ghostpunch.OnlyDown.Common.Signals;
+using Ghostpunch.OnlyDown.Common;
 
 namespace Ghostpunch.OnlyDown.Common
 {
