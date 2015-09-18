@@ -71,6 +71,7 @@ namespace Ghostpunch.OnlyDown.Menu.ViewModels
         {
             Debug.Log("MenuViewModel:OnGameStart");
             IsMainMenuVisible = false;
+            IsGameOverVisible = false;
         }
 
         private void OnGameOver()

@@ -18,7 +18,6 @@ namespace Ghostpunch.OnlyDown.Menu.ViewModels
             {
                 return _restartButtonPressedCommand ?? (_restartButtonPressedCommand = new RelayCommand(() =>
                 {
-                    Debug.Log("is this not being called?");
                     GameStart.Dispatch();
                 }));
             }

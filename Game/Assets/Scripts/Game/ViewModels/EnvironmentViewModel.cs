@@ -41,6 +41,16 @@ namespace Ghostpunch.OnlyDown.Game.ViewModels
             GenerateLevel();
         }
 
+        public override void OnRemove()
+        {
+            base.OnRemove();
+
+            PlayerDig.RemoveListener(OnPlayerDig);
+            LevelScroll.RemoveListener(OnLevelScroll);
+
+            _levelGrid = null;
+        }
+
         private void GenerateLevel()
         {
             var startingX = (_transform.localPosition.x - View._gridWidth * 0.5f) + 0.5f;

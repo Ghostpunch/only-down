@@ -24,7 +24,25 @@ namespace Ghostpunch.OnlyDown.Game.Commands
                 gameField = injectionBinder.GetInstance<GameObject>(GameElement.Environment);
 
             if (gameField != null)
+            {
                 GameObject.Destroy(gameField);
+
+                injectionBinder.Unbind<GameObject>(GameElement.Environment);
+            }
+
+            GameObject player = null;
+
+            if (injectionBinder.GetBinding<GameObject>(GameElement.Player) != null)
+                player = injectionBinder.GetInstance<GameObject>(GameElement.Player);
+
+            if(player != null)
+            {
+                GameObject.Destroy(player);
+
+                injectionBinder.Unbind<GameObject>(GameElement.Player);
+            }
+
+            SandPool.Clean();
         }
     }
 }
