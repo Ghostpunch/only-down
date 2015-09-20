@@ -64,7 +64,8 @@ namespace Ghostpunch.OnlyDown.Menu
             {
                 // Disable the AudioListener
                 var listener = (contextView as GameObject).GetComponentInChildren<AudioListener>();
-                listener.enabled = false;
+                if (listener != null)
+                    listener.enabled = false;
 
                 // Disable the directional light
                 var lights = (contextView as GameObject).GetComponentsInChildren<Light>();

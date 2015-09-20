@@ -14,7 +14,7 @@ namespace Ghostpunch.OnlyDown.Menu.Views
 {
     public class MainMenuView : View
     {
-        public Button _startButton, _quitButton;
+        public UIButton _startButton, _quitButton;
 
         [Inject]
         public MainMenuViewModel VM { get; set; }
@@ -24,10 +24,16 @@ namespace Ghostpunch.OnlyDown.Menu.Views
             base.Start();
 
             if (_startButton != null)
-                _startButton.onClick.AddListener(OnStartClick);
+            {
+                var onStartDelegate = new EventDelegate(OnStartClick);
+                _startButton.onClick.Add(onStartDelegate);
+            }
 
             if (_quitButton != null)
-                _quitButton.onClick.AddListener(OnQuit);
+            {
+                var onQuitDelegate = new EventDelegate(OnQuit);
+                _quitButton.onClick.Add(onQuitDelegate);
+            }
         }
 
         private void OnStartClick()
