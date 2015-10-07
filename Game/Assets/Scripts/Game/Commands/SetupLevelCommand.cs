@@ -17,7 +17,7 @@ namespace Ghostpunch.OnlyDown.Game.Commands
         {
             if (injectionBinder.GetBinding<GameObject>(GameElement.Environment) == null)
             {
-                var prototype = Resources.Load<GameObject>(GameElement.Environment.ToString());
+                var prototype = Resources.Load<GameObject>("Environment/Environment");
                 var gameField = GameObject.Instantiate<GameObject>(prototype);
 
                 gameField.transform.localPosition = Vector3.zero;
