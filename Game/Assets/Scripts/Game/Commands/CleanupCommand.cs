@@ -1,48 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using strange.extensions.command.impl;
-using strange.extensions.pool.api;
-using UnityEngine;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using strange.extensions.command.impl;
+//using strange.extensions.pool.api;
+//using UnityEngine;
 
-namespace Ghostpunch.OnlyDown.Game.Commands
-{
-    public class CleanupCommand : Command
-    {
-        //[Inject(GameElement.Environment)]
-        //public GameObject GameField { get; set; }
+//namespace Ghostpunch.OnlyDown.Game.Commands
+//{
+//    public class CleanupCommand : Command
+//    {
+//        //[Inject(GameElement.Environment)]
+//        //public GameObject GameField { get; set; }
 
-        [Inject(GameElement.SandPool)]
-        public IPool<GameObject> SandPool { get; set; }
+//        [Inject(GameElement.SandPool)]
+//        public IPool<GameObject> SandPool { get; set; }
 
-        public override void Execute()
-        {
-            GameObject gameField = null;
+//        public override void Execute()
+//        {
+//            GameObject gameField = null;
 
-            if (injectionBinder.GetBinding<GameObject>(GameElement.Environment) != null)
-                gameField = injectionBinder.GetInstance<GameObject>(GameElement.Environment);
+//            if (injectionBinder.GetBinding<GameObject>(GameElement.Environment) != null)
+//                gameField = injectionBinder.GetInstance<GameObject>(GameElement.Environment);
 
-            if (gameField != null)
-            {
-                GameObject.Destroy(gameField);
+//            if (gameField != null)
+//            {
+//                GameObject.Destroy(gameField);
 
-                injectionBinder.Unbind<GameObject>(GameElement.Environment);
-            }
+//                injectionBinder.Unbind<GameObject>(GameElement.Environment);
+//            }
 
-            GameObject player = null;
+//            GameObject player = null;
 
-            if (injectionBinder.GetBinding<GameObject>(GameElement.Player) != null)
-                player = injectionBinder.GetInstance<GameObject>(GameElement.Player);
+//            if (injectionBinder.GetBinding<GameObject>(GameElement.Player) != null)
+//                player = injectionBinder.GetInstance<GameObject>(GameElement.Player);
 
-            if(player != null)
-            {
-                GameObject.Destroy(player);
+//            if(player != null)
+//            {
+//                GameObject.Destroy(player);
 
-                injectionBinder.Unbind<GameObject>(GameElement.Player);
-            }
+//                injectionBinder.Unbind<GameObject>(GameElement.Player);
+//            }
 
-            SandPool.Clean();
-        }
-    }
-}
+//            SandPool.Clean();
+//        }
+//    }
+//}

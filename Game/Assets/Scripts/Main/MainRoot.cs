@@ -1,14 +1,14 @@
-﻿using UnityEngine;
-using System.Collections;
-using strange.extensions.context.impl;
+﻿//using UnityEngine;
+//using System.Collections;
+//using strange.extensions.context.impl;
 
-namespace Ghostpunch.OnlyDown.Main
-{
-    public class MainRoot : ContextView
-    {
-        void Awake()
-        {
-            context = new MainContext(this);
-        }
-    }
-}
+//namespace Ghostpunch.OnlyDown.Main
+//{
+//    public class MainRoot : ContextView
+//    {
+//        void Awake()
+//        {
+//            context = new MainContext(this);
+//        }
+//    }
+//}

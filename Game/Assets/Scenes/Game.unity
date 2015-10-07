@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -155,6 +153,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -180,6 +179,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1176479109}
+  - 114: {fileID: 1176479111}
   - 114: {fileID: 1176479110}
   m_Layer: 0
   m_Name: Game Root
@@ -210,9 +210,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1176479108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3977e937409cc6d4faa509d19fb1daca, type: 3}
+  m_Script: {fileID: 11500000, guid: 61f4713698c75364aa7549639f96b743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneSettings:
+    _mainCamera: {fileID: 906344947}
+    _player:
+      _prefab: {fileID: 181736, guid: 84b01bb63e602e94596885fb6e0a8aa1, type: 2}
+      _settings:
+        _moveSpeed: 5
+        _fallSpeed: 5
+    _environment:
+      _settings:
+        _cellSize: 2.55999994
+        _leftWallPiecePrefabs: []
+        _rightWallPiecePrefabs: []
+--- !u!114 &1176479111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1176479108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnlyInjectWhenActive: 1
+  InjectFullScene: 0
+  Installers:
+  - {fileID: 1176479110}
 --- !u!1 &1301277001
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +271,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
