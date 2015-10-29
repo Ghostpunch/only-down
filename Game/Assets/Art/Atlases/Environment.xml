@@ -1,0 +1,32 @@
+<TextureAtlas imagePath="Environment.png">
+	<SubTexture name="Sand_1_1.png" x="0" y="2580" width="256" height="256"/>
+	<SubTexture name="Sand_1_10.png" x="0" y="2064" width="256" height="256"/>
+	<SubTexture name="Sand_1_11.png" x="0" y="1806" width="256" height="256"/>
+	<SubTexture name="Sand_1_12.png" x="0" y="1548" width="256" height="256"/>
+	<SubTexture name="Sand_1_13.png" x="0" y="1290" width="256" height="256"/>
+	<SubTexture name="Sand_1_14.png" x="0" y="1032" width="256" height="256"/>
+	<SubTexture name="Sand_1_2.png" x="0" y="3354" width="256" height="256"/>
+	<SubTexture name="Sand_1_3.png" x="0" y="258" width="256" height="256"/>
+	<SubTexture name="Sand_1_4.png" x="0" y="0" width="256" height="256"/>
+	<SubTexture name="Sand_1_5.png" x="0" y="516" width="256" height="256"/>
+	<SubTexture name="Sand_1_6.png" x="0" y="3096" width="256" height="256"/>
+	<SubTexture name="Sand_1_7.png" x="0" y="2838" width="256" height="256"/>
+	<SubTexture name="Sand_1_8.png" x="0" y="774" width="256" height="256"/>
+	<SubTexture name="Sand_1_9.png" x="0" y="2322" width="256" height="256"/>
+	<SubTexture name="Wall_Left_0.png" x="0" y="3612" width="236" height="256"/>
+	<SubTexture name="Wall_Left_1.png" x="258" y="1806" width="220" height="256"/>
+	<SubTexture name="Wall_Left_2.png" x="258" y="1032" width="223" height="256"/>
+	<SubTexture name="Wall_Left_3.png" x="258" y="2580" width="219" height="256"/>
+	<SubTexture name="Wall_Left_4.png" x="258" y="3096" width="210" height="256"/>
+	<SubTexture name="Wall_Left_5.png" x="258" y="2838" width="219" height="256"/>
+	<SubTexture name="Wall_Left_6.png" x="258" y="516" width="229" height="256"/>
+	<SubTexture name="Wall_Left_7.png" x="258" y="258" width="236" height="256"/>
+	<SubTexture name="Wall_Right_0.png" x="258" y="0" width="236" height="256"/>
+	<SubTexture name="Wall_Right_1.png" x="258" y="1548" width="220" height="256"/>
+	<SubTexture name="Wall_Right_2.png" x="258" y="1290" width="223" height="256"/>
+	<SubTexture name="Wall_Right_3.png" x="258" y="2322" width="219" height="256"/>
+	<SubTexture name="Wall_Right_4.png" x="258" y="3354" width="210" height="256"/>
+	<SubTexture name="Wall_Right_5.png" x="258" y="2064" width="219" height="256"/>
+	<SubTexture name="Wall_Right_6.png" x="258" y="774" width="229" height="256"/>
+	<SubTexture name="Wall_Right_7.png" x="238" y="3612" width="236" height="256"/>
+</TextureAtlas>

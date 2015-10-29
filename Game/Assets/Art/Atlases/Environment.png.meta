@@ -1,31 +1,39 @@
 fileFormatVersion: 2
-guid: 24f59bb94e9ee034eb87e8aec91f667c
-timeCreated: 1443160606
+guid: da36fc2d06f6c6d4d86cf236c9169d47
+timeCreated: 1444758701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 1x1
-    21300002: 1x2
-    21300004: 1x3
-    21300006: 1x4
-    21300008: 1x5
-    21300010: 1x6
-    21300012: Left0
-    21300014: Left1
-    21300016: Left2
-    21300018: Left3
-    21300020: Left4
-    21300022: Left5
-    21300024: Left6
-    21300026: Left7
-    21300028: Right0
-    21300030: Right1
-    21300032: Right2
-    21300034: Right3
-    21300036: Right4
-    21300038: Right5
-    21300040: Right6
-    21300042: Right7
+    21300000: Sand_1_12
+    21300002: Sand_1_13
+    21300004: Sand_1_14
+    21300006: Sand_1_3
+    21300008: Sand_1_4
+    21300010: Sand_1_5
+    21300012: Sand_1_8
+    21300014: Wall_Left_2
+    21300016: Wall_Left_6
+    21300018: Wall_Left_7
+    21300020: Wall_Right_0
+    21300022: Wall_Right_1
+    21300024: Wall_Right_2
+    21300026: Wall_Right_6
+    21300028: Sand_1_1
+    21300030: Sand_1_10
+    21300032: Sand_1_11
+    21300034: Sand_1_2
+    21300036: Sand_1_6
+    21300038: Sand_1_7
+    21300040: Sand_1_9
+    21300042: Wall_Left_0
+    21300044: Wall_Left_1
+    21300046: Wall_Left_3
+    21300048: Wall_Left_4
+    21300050: Wall_Left_5
+    21300052: Wall_Right_3
+    21300054: Wall_Right_4
+    21300056: Wall_Right_5
+    21300058: Wall_Right_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +59,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 4096
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -66,231 +74,311 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: 1x1
+    - name: Sand_1_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1790
+        x: 0
+        y: 1260
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 1x2
+    - name: Sand_1_10
       rect:
         serializedVersion: 2
-        x: 260
-        y: 1790
+        x: 0
+        y: 1776
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 1x3
+    - name: Sand_1_11
       rect:
         serializedVersion: 2
-        x: 518
-        y: 1790
+        x: 0
+        y: 2034
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 1x4
+    - name: Sand_1_12
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1532
+        x: 0
+        y: 2292
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 1x5
+    - name: Sand_1_13
       rect:
         serializedVersion: 2
-        x: 260
-        y: 1532
+        x: 0
+        y: 2550
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 1x6
+    - name: Sand_1_14
       rect:
         serializedVersion: 2
-        x: 518
-        y: 1532
+        x: 0
+        y: 2808
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left0
+    - name: Sand_1_2
       rect:
         serializedVersion: 2
-        x: 776
-        y: 1790
+        x: 0
+        y: 486
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3582
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3324
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 744
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1002
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3066
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1518
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
         width: 236
         height: 256
-      alignment: 9
-      pivot: {x: .542372882, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left1
+    - name: Wall_Left_1
       rect:
         serializedVersion: 2
-        x: 452
-        y: 1016
+        x: 258
+        y: 2034
         width: 220
         height: 256
-      alignment: 9
-      pivot: {x: .581818163, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left2
+    - name: Wall_Left_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1016
+        x: 258
+        y: 2808
         width: 223
         height: 256
-      alignment: 9
-      pivot: {x: .57399106, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left3
+    - name: Wall_Left_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 758
+        x: 258
+        y: 1260
         width: 219
         height: 256
-      alignment: 9
-      pivot: {x: .584474862, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left4
+    - name: Wall_Left_4
       rect:
         serializedVersion: 2
-        x: 444
-        y: 758
+        x: 258
+        y: 744
         width: 210
         height: 256
-      alignment: 9
-      pivot: {x: .609523833, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left5
+    - name: Wall_Left_5
       rect:
         serializedVersion: 2
-        x: 2
-        y: 500
+        x: 258
+        y: 1002
         width: 219
         height: 256
-      alignment: 9
-      pivot: {x: .584474862, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left6
+    - name: Wall_Left_6
       rect:
         serializedVersion: 2
-        x: 478
-        y: 1274
+        x: 258
+        y: 3324
         width: 229
         height: 256
-      alignment: 9
-      pivot: {x: .558951974, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Left7
+    - name: Wall_Left_7
       rect:
         serializedVersion: 2
-        x: 776
-        y: 1532
+        x: 258
+        y: 3582
         width: 236
         height: 256
-      alignment: 9
-      pivot: {x: .542372882, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right0
+    - name: Wall_Right_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1274
+        x: 258
+        y: 3840
         width: 236
         height: 256
-      alignment: 9
-      pivot: {x: .457627118, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right1
+    - name: Wall_Right_1
       rect:
         serializedVersion: 2
-        x: 674
-        y: 1016
+        x: 258
+        y: 2292
         width: 220
         height: 256
-      alignment: 9
-      pivot: {x: .418181807, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right2
+    - name: Wall_Right_2
       rect:
         serializedVersion: 2
-        x: 227
-        y: 1016
+        x: 258
+        y: 2550
         width: 223
         height: 256
-      alignment: 9
-      pivot: {x: .42600897, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right3
+    - name: Wall_Right_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 242
+        x: 258
+        y: 1518
         width: 219
         height: 256
-      alignment: 9
-      pivot: {x: .415525109, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right4
+    - name: Wall_Right_4
       rect:
         serializedVersion: 2
-        x: 656
-        y: 758
+        x: 258
+        y: 486
         width: 210
         height: 256
-      alignment: 9
-      pivot: {x: .390476197, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right5
+    - name: Wall_Right_5
       rect:
         serializedVersion: 2
-        x: 223
-        y: 758
+        x: 258
+        y: 1776
         width: 219
         height: 256
-      alignment: 9
-      pivot: {x: .415525109, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right6
+    - name: Wall_Right_6
       rect:
         serializedVersion: 2
-        x: 709
-        y: 1274
+        x: 258
+        y: 3066
         width: 229
         height: 256
-      alignment: 9
-      pivot: {x: .441048026, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Right7
+    - name: Wall_Right_7
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1274
+        x: 238
+        y: 228
         width: 236
         height: 256
-      alignment: 9
-      pivot: {x: .457627118, y: .5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -1,25 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Zenject;
-using System;
 
-namespace OnlyDown
+public class SceneLoader : MonoBehaviour
 {
-    public enum Cameras
-    {
-        Main,
-    }
+    public Object[] _scenes = null;
 
-    public class SceneLoader : MonoBehaviour
+    // Use this for initialization
+    void Start()
     {
-        public string[] sceneNames = null;
-
-        void Start()
+        foreach (var scene in _scenes)
         {
-            foreach (var scene in sceneNames)
-                Application.LoadLevelAdditive(scene);
-
-            Destroy(gameObject);
+            Debug.Log(scene.name);
+            Application.LoadLevelAdditive(scene.name);
         }
+
+        Destroy(gameObject);
     }
 }

@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6e1e73473c3d14e9ecd75348863ab9, type: 3}
   m_Name: ZenjectGlobalCompositionRoot
   m_EditorClassIdentifier: 
-  Installers: []
+  Installers:
+  - {fileID: 11422440, guid: a1d01de482bf9eb4aacd27e366addcab, type: 2}

@@ -7,6 +7,7 @@ public static class Tags
     public const string MainCamera = "MainCamera";
     public const string Player = "Player";
     public const string GameController = "GameController";
+    public const string Walls = "Walls";
 }
 public static class Layers
 {
