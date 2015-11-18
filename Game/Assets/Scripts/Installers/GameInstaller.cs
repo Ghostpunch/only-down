@@ -25,12 +25,14 @@ namespace Ghostpunch.OnlyDown
 
         private void MapEnvironmentBindings()
         {
-            Container.Bind<EnvironmentView>().ToTransientPrefab(_sceneSettings.EnvironmentPrefab).WhenInjectedInto<EnvironmentPresenter>();
+            if (_sceneSettings.Environment != null)
+            {
+                Container.BindInstance(_sceneSettings.Environment);
+                Container.BindInstance(_sceneSettings.Environment.Settings);
 
-            Container.Bind<IInitializable>().ToSingle<EnvironmentPresenter>();
-            Container.Bind<EnvironmentPresenter>().ToSingle();
-
-            Container.Bind<EnvironmentPresenter.Settings>().ToSingleInstance(_sceneSettings.EnvironmentSettings);
+                Container.Bind<IInitializable>().ToSingle<EnvironmentPresenter>();
+                Container.Bind<EnvironmentPresenter>().ToSingle();
+            }
         }
 
         private void MapPlayerBindings()
@@ -52,16 +54,12 @@ namespace Ghostpunch.OnlyDown
             public Camera MainCamera { get { return _mainCamera; } }
 
             [SerializeField]
-            private GameObject _environmentPrefab = null;
-            public GameObject EnvironmentPrefab { get { return _environmentPrefab; } }
+            private EnvironmentView _environment = null;
+            public EnvironmentView Environment { get { return _environment; } }
 
             [SerializeField]
             private GameObject _playerPrefab = null;
             public GameObject PlayerPrefab { get { return _playerPrefab; } }
-
-            [SerializeField]
-            private EnvironmentPresenter.Settings _environmentSettings = null;
-            public EnvironmentPresenter.Settings EnvironmentSettings { get { return _environmentSettings; } }
 
             [SerializeField]
             private PlayerPresenter.Settings _playerSettings = null;

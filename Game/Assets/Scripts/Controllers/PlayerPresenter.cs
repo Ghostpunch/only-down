@@ -54,6 +54,7 @@ namespace Ghostpunch.OnlyDown
             {
                 return _onGameStart ?? (_onGameStart = new RelayCommand(() =>
                 {
+                    Debug.Log("Switching states to Playing");
                     _state = PlayerStates.Playing;
                 }));
             }
@@ -78,7 +79,10 @@ namespace Ghostpunch.OnlyDown
         public void FixedTick()
         {
             if (_state == PlayerStates.Playing)
+            {
                 _transform.Translate(_currentDirection * _settings.MoveSpeed * Time.deltaTime);
+                Debug.Log("I should be going!");
+            }
         }
 
         [Serializable]

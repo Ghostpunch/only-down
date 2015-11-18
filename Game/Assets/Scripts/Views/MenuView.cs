@@ -17,6 +17,7 @@ namespace Ghostpunch.OnlyDown
 
         public void OnButtonPress(string message)
         {
+            Debug.Log("Firing message: " + message);
             _messageSystem.Broadcast(message, null);
         }
     }

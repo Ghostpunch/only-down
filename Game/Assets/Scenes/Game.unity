@@ -193,45 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneSettings:
     _mainCamera: {fileID: 364919260}
-    _environmentPrefab: {fileID: 156390, guid: ed6382481b7706642a850542e0bb18cd, type: 2}
+    _environment: {fileID: 1174959992}
     _playerPrefab: {fileID: 121980, guid: e74936f930991de49af06af41446cede, type: 2}
-    _environmentSettings:
-      _startingYPos: 0
-      _sandVariations: 1
-      _variationWidth: 14
-      _sandPrefabs:
-      - {fileID: 195784, guid: 9c60b4247a909ae4895dd9510410f6dc, type: 2}
-      - {fileID: 199808, guid: 53fcb8dd0fe86294482aba483e392386, type: 2}
-      - {fileID: 181850, guid: 06357a2a2dc87d647ad8e4595f685d0b, type: 2}
-      - {fileID: 136162, guid: b31c78d5eef3df14395b45e0278ac013, type: 2}
-      - {fileID: 142360, guid: 7d36430e7902a4a45871105324071403, type: 2}
-      - {fileID: 199620, guid: c1d887a3d278f5f499b5e60120a47801, type: 2}
-      - {fileID: 123738, guid: e46944b80c877114fb825440f61c17b2, type: 2}
-      - {fileID: 191100, guid: 0ab1645270f58da4ca1be8757d424763, type: 2}
-      - {fileID: 158516, guid: f5e994a9924f7574e8120b918dd18798, type: 2}
-      - {fileID: 162774, guid: 0dc8276c578141041b96b59ed31e81d7, type: 2}
-      - {fileID: 188336, guid: 9f81545ac67a46945a76a53b86268aa8, type: 2}
-      - {fileID: 141558, guid: 2066a8f40fe72a543927cf54aa2109c0, type: 2}
-      - {fileID: 112652, guid: 1543062be2a77a448a6aa05d2e6e3477, type: 2}
-      - {fileID: 100906, guid: 4c7d1b05b7dcbc94b95dec4543efa0bc, type: 2}
-      _leftWallPrefabs:
-      - {fileID: 134246, guid: b30e47d322933b0488ca5385d2670c9e, type: 2}
-      - {fileID: 114296, guid: 9cc97eb2a00fcf44bb4d318358e71e56, type: 2}
-      - {fileID: 197262, guid: 4a33acff01cba6d408b95cbaf975a74d, type: 2}
-      - {fileID: 102476, guid: dbf2111ce02e6e845b7434b72d5a2dbf, type: 2}
-      - {fileID: 151788, guid: 8e2f0bb7ba87ad64db67a896b2d98690, type: 2}
-      - {fileID: 140074, guid: 6280e1d380162e640ac51876c3c5f854, type: 2}
-      - {fileID: 191374, guid: a3124c391a116634984f20deae112840, type: 2}
-      - {fileID: 172680, guid: 1e2f3383aa7b97947bc95c5be94cee02, type: 2}
-      _rightWallPrefabs:
-      - {fileID: 114200, guid: 9e71c268005d0d8459e1800932a9bc2c, type: 2}
-      - {fileID: 116396, guid: 7bcfb0687417a5840ad21da3d3bcd5d9, type: 2}
-      - {fileID: 107958, guid: e4d127b5c5592ec4dad1ede5a85bf0d5, type: 2}
-      - {fileID: 186092, guid: 8aef400dc242349418660e953ab9e1ec, type: 2}
-      - {fileID: 196476, guid: 7b4edbd579c130e44880b29ef1b70423, type: 2}
-      - {fileID: 112358, guid: 1a0d166aa80ce5a4e87e0854d4236fdb, type: 2}
-      - {fileID: 134056, guid: b79a62f70b99cff42a3ec875286bdab1, type: 2}
-      - {fileID: 105878, guid: 7e5a3367c85930b4cb8f64b5ced1096c, type: 2}
     _playerSettings:
       _moveSpeed: 5
       _fallSpeed: 5
@@ -261,10 +224,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 364919261}
-  - {fileID: 1998553420}
+  - {fileID: 1385141650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &1998553419
+--- !u!1001 &1138924240
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -306,7 +269,13 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed6382481b7706642a850542e0bb18cd, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1998553420 stripped
+--- !u!114 &1174959992 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11403784, guid: ed6382481b7706642a850542e0bb18cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138924240}
+  m_Script: {fileID: 11500000, guid: 8b974b02288c8b9468d7ea78549d0854, type: 3}
+--- !u!4 &1385141650 stripped
 Transform:
   m_PrefabParentObject: {fileID: 427770, guid: ed6382481b7706642a850542e0bb18cd, type: 2}
-  m_PrefabInternal: {fileID: 1998553419}
+  m_PrefabInternal: {fileID: 1138924240}
