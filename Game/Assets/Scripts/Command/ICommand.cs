@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ghostpunch.OnlyDown.Messaging
+namespace Ghostpunch.OnlyDown.Command
 {
     /// <summary>
     /// Defines a command.

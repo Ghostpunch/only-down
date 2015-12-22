@@ -3,6 +3,7 @@ using System.Collections;
 using Ghostpunch.OnlyDown.Messaging;
 using Zenject;
 using System;
+using Ghostpunch.OnlyDown.Command;
 
 namespace Ghostpunch.OnlyDown
 {

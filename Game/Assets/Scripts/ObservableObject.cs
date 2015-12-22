@@ -5,8 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using UnityEngine;
 
-public abstract class ObservableObject : INotifyPropertyChanged
+public abstract class ObservableObject : MonoBehaviour, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 

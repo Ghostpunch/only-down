@@ -28,10 +28,10 @@ namespace Ghostpunch.OnlyDown
             if (_sceneSettings.Environment != null)
             {
                 Container.BindInstance(_sceneSettings.Environment);
-                Container.BindInstance(_sceneSettings.Environment.Settings);
+                //Container.BindInstance(_sceneSettings.Environment.Settings);
 
-                Container.Bind<IInitializable>().ToSingle<EnvironmentPresenter>();
-                Container.Bind<EnvironmentPresenter>().ToSingle();
+                //Container.Bind<IInitializable>().ToSingle<EnvironmentPresenter>();
+                //Container.Bind<EnvironmentPresenter>().ToSingle();
             }
         }
 

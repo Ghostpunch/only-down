@@ -1,53 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
-using System.Linq;
-using System;
-using Ghostpunch.OnlyDown.Messaging;
-using Zenject;
 using System.Collections.Generic;
-using Ghostpunch.OnlyDown.Command;
+using System.Linq;
+using System.Text;
+using UnityEngine;
 
 namespace Ghostpunch.OnlyDown
 {
-    /*
-    public class EnvironmentPresenter : IInitializable
+    public class EnvironmentViewModel : ObservableObject
     {
-        private EnvironmentView _view = null;
-        private EnvironmentView.ViewSettings _settings = null;
-        private IMessageSystem _messageSystem = null;
+        private Transform _transform = null;
         private Camera _mainCamera = null;
 
-        private Transform _transform = null;
-
-        #region Commands
-        private RelayCommand<Collider> _onLevelScroll;
-        private RelayCommand<Collider> OnLevelScroll
+        private EnvironmentModel _model = null;
+        public EnvironmentModel Model
         {
-            get
-            {
-                return _onLevelScroll ?? (_onLevelScroll = new RelayCommand<Collider>(collision =>
-                {
-                    // At this point we need to scroll the level up
-                }));
-            }
-        }
-        #endregion
-
-        public EnvironmentPresenter(EnvironmentView view, EnvironmentView.ViewSettings settings, Camera mainCamera, IMessageSystem messageSystem)
-        {
-            _view = view;
-            _settings = settings;
-
-            _mainCamera = mainCamera;
-            _messageSystem = messageSystem;
+            get { return _model; }
+            set { Set(() => Model, ref _model, value); }
         }
 
-        public void Initialize()
+        void Start()
         {
-            _transform = _view.transform;
-            _messageSystem.Subscribe(GameMessages.PlayerHitScrollPoint, OnLevelScroll);
-            _view.StartCoroutine(GenerateLevel());
-            _view.StartCoroutine(GenerateWalls());
+            _transform = transform;
+            _mainCamera = Camera.main ?? Camera.allCameras[0];
+
+            StartCoroutine(GenerateLevel());
+            StartCoroutine(GenerateWalls());
         }
 
         private IEnumerator GenerateLevel()
@@ -63,7 +41,7 @@ namespace Ghostpunch.OnlyDown
             var leftEdge = Mathf.Ceil(-camHorizontalExtent - 0.5f);
             var rightEdge = Mathf.Ceil(camHorizontalExtent - 0.5f);
 
-            var sandVariation = UnityEngine.Random.Range(1, _settings.SandVariations + 1);
+            var sandVariation = UnityEngine.Random.Range(1, Model.SandVariations + 1);
             for (int y = 0; y >= bottomEdge; --y)
             {
                 var x = leftEdge;
@@ -71,10 +49,10 @@ namespace Ghostpunch.OnlyDown
 
                 do
                 {
-                    if (i > _settings.CellsPerVariation)
+                    if (i > Model.CellsPerVariation)
                         i = 1;
                     var spriteName = String.Format("Sand_{0}_{1}.png", sandVariation, i);
-                    var spriteAtlas = _settings.SpriteAtlases.Where(s => s.Contains(spriteName)).FirstOrDefault();
+                    var spriteAtlas = Model.SpriteAtlases.Where(s => s.Contains(spriteName)).FirstOrDefault();
 
                     if (spriteAtlas == null)
                     {
@@ -94,7 +72,7 @@ namespace Ghostpunch.OnlyDown
                     ++i;
                 } while (x <= rightEdge);
 
-                sandVariation = UnityEngine.Random.Range(1, _settings.SandVariations);
+                sandVariation = UnityEngine.Random.Range(1, Model.SandVariations);
             }
 
             yield return new WaitForEndOfFrame();
@@ -113,7 +91,7 @@ namespace Ghostpunch.OnlyDown
             var leftEdge = Mathf.Ceil(-camHorizontalExtent) - 0.5f;
             var rightEdge = Mathf.Ceil(camHorizontalExtent) - 0.5f;
 
-            var y = _view.transform.localPosition.y;
+            var y = _transform.localPosition.y;
             var i = 0;
 
             do
@@ -140,7 +118,7 @@ namespace Ghostpunch.OnlyDown
         private SpriteRenderer CreateNewWall(string side, int i)
         {
             var spriteName = String.Format("Wall_{0}_{1}.png", side, i);
-            var spriteAtlas = _settings.SpriteAtlases.Where(s => s.Contains(spriteName)).FirstOrDefault();
+            var spriteAtlas = Model.SpriteAtlases.Where(s => s.Contains(spriteName)).FirstOrDefault();
 
             if (spriteAtlas == null)
             {
@@ -153,8 +131,10 @@ namespace Ghostpunch.OnlyDown
             var spriteRenderer = spriteGO.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sandSprite;
 
+            spriteGO.tag = Tags.Walls;
+            spriteGO.AddComponent<BoxCollider>();
+
             return spriteRenderer;
         }
     }
-    */
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using Zenject;
 using System;
+using Ghostpunch.OnlyDown.Command;
 using Ghostpunch.OnlyDown.Messaging;
 
 namespace Ghostpunch.OnlyDown

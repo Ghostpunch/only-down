@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Ghostpunch.OnlyDown.Messaging;
-using Zenject;
 using Lean;
 
 namespace Ghostpunch.OnlyDown
 {
-    public class PlayerView : MonoBehaviour
+    public class PlayerView : BaseView<PlayerViewModel>
     {
-        private IMessageSystem _messageSystem = null;
+        /// <summary>
+        /// This is essentially a throw away model, for design purposes
+        /// Values will be transfered to VM and never used again.
+        /// If values are updated in the Inspector, the VM will be updated.
+        /// But modifying these values at runtime through code will do nothing.
+        /// </summary>
+        public PlayerModel _settings;
 
-        [PostInject]
-        public void Initialize(IMessageSystem messageSystem)
+        protected override void Awake()
         {
-            _messageSystem = messageSystem;
+            base.Awake();
+
+            ViewModel.Model = _settings;
         }
 
         void OnEnable()
@@ -28,19 +32,25 @@ namespace Ghostpunch.OnlyDown
 
         private void OnFingerTap(LeanFinger finger)
         {
-            _messageSystem.Broadcast(GameMessages.PlayerTap, null);
+            ViewModel.OnTap.Execute(null);
         }
 
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == Tags.Walls)
-                _messageSystem.Broadcast(GameMessages.PlayerHitWall, collision);
+                ViewModel.OnWallHit.Execute(collision);
         }
 
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == Tags.Finish)
-                _messageSystem.Broadcast(GameMessages.PlayerHitScrollPoint, other);
+                ViewModel.OnScrollPointHit.Execute(other);
+        }
+
+        void OnValidate()
+        {
+            if (ViewModel != null && _settings != null)
+                ViewModel.Model = _settings;
         }
     }
 }

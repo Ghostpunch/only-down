@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ghostpunch.OnlyDown.Messaging
+namespace Ghostpunch.OnlyDown.Command
 {
     public class RelayCommand<T> : ICommand
     {

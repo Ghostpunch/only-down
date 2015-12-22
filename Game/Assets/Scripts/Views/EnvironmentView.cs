@@ -5,23 +5,27 @@ using System.Collections.Generic;
 
 namespace Ghostpunch.OnlyDown
 {
-    public class EnvironmentView : MonoBehaviour
+    public class EnvironmentView : BaseView<EnvironmentViewModel>
     {
-        [SerializeField]
-        private ViewSettings _settings = null;
-        public ViewSettings Settings { get { return _settings; } }
+        /// <summary>
+        /// This is essentially a throw away model, for design purposes
+        /// Values will be transfered to VM and never used again.
+        /// If values are updated in the Inspector, the VM will be updated.
+        /// But modifying these values at runtime through code will do nothing.
+        /// </summary>
+        public EnvironmentModel _settings = null;
 
-        [Serializable]
-        public class ViewSettings
+        protected override void Awake()
         {
-            [SerializeField]
-            private int _sandVariations = 1, _cellsPerVariation = 15;
-            public int SandVariations { get { return _sandVariations; } }
-            public int CellsPerVariation { get { return _cellsPerVariation; } }
+            base.Awake();
 
-            [SerializeField]
-            private SpriteAtlas[] _spriteAtlases = null;
-            public SpriteAtlas[] SpriteAtlases { get { return _spriteAtlases; } }
+            ViewModel.Model = _settings;
+        }
+
+        void OnValidate()
+        {
+            if (ViewModel != null && _settings != null)
+                ViewModel.Model = _settings;
         }
     }
 }
