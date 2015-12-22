@@ -32,7 +32,7 @@ namespace Ghostpunch.OnlyDown
 
         public void Initialize()
         {
-            _messageSystem.Subscribe(GameMessages.StartGameButton, OnStartGame);
+            //_messageSystem.Subscribe(GameMessages.StartGameButton, OnStartGame);
         }
     }
 }

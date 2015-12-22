@@ -8,32 +8,75 @@ namespace Ghostpunch.OnlyDown.Messaging
 {
     public class MessageSystem : IMessageSystem
     {
-        private Dictionary<string, Action<object>> _messageDictionary = new Dictionary<string, Action<object>>();
+        #region Singleton
+        private static readonly object CreationLock = new object();
+        private static IMessageSystem _defaultInstance = null;
 
-        public void Broadcast(string eventName, object args)
+        public static IMessageSystem Default
         {
-            Action<object> existingAction = null;
-            if (_messageDictionary.TryGetValue(eventName, out existingAction))
-                existingAction(args);
-        }
-
-        public void Subscribe(string eventName, ICommand listener)
-        {
-            Action<object> existingAction = null;
-            if (_messageDictionary.TryGetValue(eventName, out existingAction))
-                existingAction += listener.Execute;
-            else
+            get
             {
-                existingAction = listener.Execute;
-                _messageDictionary.Add(eventName, existingAction);
+                if (_defaultInstance == null)
+                {
+                    lock (CreationLock)
+                    {
+                        // This double check done because another thread could've 
+                        // created this while we were waiting.
+                        if (_defaultInstance == null)
+                            _defaultInstance = new MessageSystem();
+                    }
+                }
+
+                return _defaultInstance;
+            }
+        }
+        #endregion
+
+        private readonly object _registerLock = new object();
+        private Dictionary<Type, List<WeakAction>> _messageDictionary = new Dictionary<Type, List<WeakAction>>();
+
+        public void Subscribe<TMessage>(Action<TMessage> listener) where TMessage : MessageBase
+        {
+            var type = typeof(TMessage);
+
+            lock (_registerLock)
+            {
+                if (_messageDictionary.ContainsKey(type))
+                    _messageDictionary[type].Add(new WeakAction<TMessage>(listener));
+                else
+                {
+                    var newActionList = new List<WeakAction>();
+                    newActionList.Add(new WeakAction<TMessage>(listener));
+                    _messageDictionary.Add(type, newActionList);
+                }
             }
         }
 
-        public void Unsubscribe(string eventName, ICommand listener)
+        public void Unsubscribe<TMessage>(Action<TMessage> listener) where TMessage : MessageBase
         {
-            Action<object> existingAction = null;
-            if (_messageDictionary.TryGetValue(eventName, out existingAction))
-                existingAction -= listener.Execute;
+            var type = typeof(TMessage);
+
+            lock (_registerLock)
+            {
+                if (_messageDictionary.ContainsKey(type))
+                {
+                    var list = _messageDictionary[type];
+                    var weakAction = new WeakAction<TMessage>(listener);
+                    list.Remove(weakAction);
+                }
+            }
+        }
+
+        public void Broadcast<TMessage>(TMessage message) where TMessage : MessageBase
+        {
+            var type = typeof(TMessage);
+            if (_messageDictionary.ContainsKey(type))
+            {
+                var list = _messageDictionary[type];
+                var count = list.Count;
+                for (int i = 0; i < count; ++i)
+                    (list[i] as WeakAction<TMessage>).Execute(message);
+            }
         }
     }
 }

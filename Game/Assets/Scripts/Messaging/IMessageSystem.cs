@@ -1,11 +1,12 @@
-﻿using Ghostpunch.OnlyDown.Command;
+﻿using System;
+using Ghostpunch.OnlyDown.Command;
 
 namespace Ghostpunch.OnlyDown.Messaging
 {
     public interface IMessageSystem
     {
-        void Subscribe(string eventName, ICommand listener);
-        void Unsubscribe(string eventName, ICommand listener);
-        void Broadcast(string eventName, object args);
+        void Subscribe<TMessage>(Action<TMessage> listener) where TMessage : MessageBase;
+        void Unsubscribe<TMessage>(Action<TMessage> listener) where TMessage : MessageBase;
+        void Broadcast<TMessage>(TMessage message) where TMessage : MessageBase;
     }
 }

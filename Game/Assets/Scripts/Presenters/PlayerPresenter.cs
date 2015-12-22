@@ -80,9 +80,9 @@ namespace Ghostpunch.OnlyDown
         {
             _transform = _view.transform;
 
-            _messageSystem.Subscribe(GameMessages.PlayerHitWall, OnWallHit);
-            _messageSystem.Subscribe(GameMessages.PlayerTap, OnPlayerTap);
-            _messageSystem.Subscribe(GameMessages.StartGameButton, OnGameStart);
+            //_messageSystem.Subscribe(GameMessages.PlayerHitWall, OnWallHit);
+            //_messageSystem.Subscribe(GameMessages.PlayerTap, OnPlayerTap);
+            //_messageSystem.Subscribe(GameMessages.StartGameButton, OnGameStart);
         }
 
         public void FixedTick()
