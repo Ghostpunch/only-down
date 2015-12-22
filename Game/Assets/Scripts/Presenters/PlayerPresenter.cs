@@ -6,7 +6,7 @@ using Ghostpunch.OnlyDown.Messaging;
 
 namespace Ghostpunch.OnlyDown
 {
-    public class PlayerPresenter : IInitializable, IFixedTickable
+    public class PlayerPresenter : ObservableObject, IInitializable, IFixedTickable
     {
         private enum PlayerStates
         {
@@ -15,6 +15,8 @@ namespace Ghostpunch.OnlyDown
             Dead,
         }
 
+        #region Fields and Properties
+
         private PlayerView _view = null;
         private IMessageSystem _messageSystem = null;
         private Settings _settings = null;
@@ -22,6 +24,10 @@ namespace Ghostpunch.OnlyDown
         private Transform _transform = null;
         private Vector3 _currentDirection = Vector3.left;
         private PlayerStates _state = PlayerStates.Waiting;
+
+        #endregion
+
+        #region Commands
 
         private RelayCommand<Collision> _onWallHit;
         private RelayCommand<Collision> OnWallHit
@@ -59,6 +65,8 @@ namespace Ghostpunch.OnlyDown
                 }));
             }
         }
+
+        #endregion
 
         public PlayerPresenter(PlayerView view, Settings settings, IMessageSystem messageSystem)
         {
