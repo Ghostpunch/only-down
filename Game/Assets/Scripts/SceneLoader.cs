@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -10,8 +10,8 @@ public class SceneLoader : MonoBehaviour
     {
         foreach (var scene in _scenes)
         {
-            Debug.Log(scene.name);
-            Application.LoadLevelAdditive(scene.name);
+            Debug.Log("Loading Scene: " + scene.name);
+            SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
         }
 
         Destroy(gameObject);

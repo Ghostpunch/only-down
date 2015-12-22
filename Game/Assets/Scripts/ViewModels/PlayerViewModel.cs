@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ghostpunch.OnlyDown.Command;
+﻿using Ghostpunch.OnlyDown.Command;
+using Ghostpunch.OnlyDown.Messaging;
 using UnityEngine;
 
 namespace Ghostpunch.OnlyDown
@@ -18,17 +15,17 @@ namespace Ghostpunch.OnlyDown
 
         #region Fields and Properties
 
-        private PlayerModel _model = null;
-
         private Transform _transform = null;
         private Vector3 _currentDirection = Vector3.left;
-        private PlayerStates _state = PlayerStates.Playing;
+        private PlayerStates _state = PlayerStates.Waiting;
 
+        private PlayerModel _model = null;
         public PlayerModel Model
         {
             get { return _model; }
             set { Set(() => Model, ref _model, value); }
         }
+
         #endregion
 
         #region Commands
@@ -41,7 +38,6 @@ namespace Ghostpunch.OnlyDown
                 return _onWallHit ?? (_onWallHit = new RelayCommand<Collision>(collision =>
                 {
                     _currentDirection *= -1;
-                    Debug.Log("Player should turn around. Is it? " + _currentDirection);
                 }));
             }
         }
@@ -65,29 +61,30 @@ namespace Ghostpunch.OnlyDown
             {
                 return _onTap ?? (_onTap = new RelayCommand(() =>
                 {
-
-                }));
-            }
-        }
-
-        private RelayCommand _onGameStart;
-        public RelayCommand OnGameStart
-        {
-            get
-            {
-                return _onGameStart ?? (_onGameStart = new RelayCommand(() =>
-                {
-                    Debug.Log("Switching states to Playing");
-                    _state = PlayerStates.Playing;
+                    MessageSystem.Default.Broadcast(new PlayerDigMessage());
                 }));
             }
         }
 
         #endregion
 
+        #region Unity Lifecycle
+
         void Start()
         {
             _transform = transform;
+        }
+
+        void OnEnable()
+        {
+            var messageSystem = MessageSystem.Default;
+            messageSystem.Subscribe<GameStartMessage>(OnGameStart);
+        }
+
+        void OnDisable()
+        {
+            var messageSystem = MessageSystem.Default;
+            messageSystem.Unsubscribe<GameStartMessage>(OnGameStart);
         }
 
         void FixedUpdate()
@@ -95,8 +92,15 @@ namespace Ghostpunch.OnlyDown
             if (_state == PlayerStates.Playing)
             {
                 _transform.Translate(_currentDirection * Model.MoveSpeed * Time.deltaTime);
-                Debug.Log("I should be going!");
             }
+        }
+
+        #endregion
+
+        private void OnGameStart(GameStartMessage obj)
+        {
+            Debug.Log("Switching states to Playing");
+            _state = PlayerStates.Playing;
         }
     }
 }

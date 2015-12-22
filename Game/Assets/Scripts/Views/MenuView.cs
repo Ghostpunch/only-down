@@ -1,24 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
-using Zenject;
-using Ghostpunch.OnlyDown.Messaging;
-
-namespace Ghostpunch.OnlyDown
+﻿namespace Ghostpunch.OnlyDown
 {
-    public class MenuView : MonoBehaviour
+    public class MenuView : BaseView<MenuViewModel>
     {
-        private IMessageSystem _messageSystem = null;
-
-        [PostInject]
-        public void Initialize(IMessageSystem messageSystem)
+        public void OnStartGameButtonPressed()
         {
-            _messageSystem = messageSystem;
+            ViewModel.OnStartGame.Execute(null);
         }
 
-        public void OnButtonPress(string message)
+        public void OnRestartGameButtonPressed()
         {
-            Debug.Log("Firing message: " + message);
-            //_messageSystem.Broadcast(message, null);
+            ViewModel.OnRestartGame.Execute(null);
         }
     }
 }
