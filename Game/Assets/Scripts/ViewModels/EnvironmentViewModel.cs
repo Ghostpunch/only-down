@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ghostpunch.OnlyDown.Messaging;
 using UnityEngine;
 
 namespace Ghostpunch.OnlyDown
@@ -26,6 +27,31 @@ namespace Ghostpunch.OnlyDown
 
             StartCoroutine(GenerateLevel());
             StartCoroutine(GenerateWalls());
+        }
+
+        void OnEnable()
+        {
+            var messageSystem = MessageSystem.Default;
+            messageSystem.Subscribe<PlayerDigMessage>(OnPlayerDig);
+        }
+
+        void OnDisable()
+        {
+            var messageSystem = MessageSystem.Default;
+            messageSystem.Unsubscribe<PlayerDigMessage>(OnPlayerDig);
+        }
+
+
+        private void OnPlayerDig(PlayerDigMessage obj)
+        {
+            var playerPosition = obj.PlayerPosition;
+            var positionToCheckForTile = playerPosition + Vector3.down;
+            RaycastHit hit;
+
+            if (Physics.Raycast(positionToCheckForTile, Vector3.forward, out hit, 10f))
+            {
+                Destroy(hit.transform.gameObject);
+            }
         }
 
         private IEnumerator GenerateLevel()
@@ -67,6 +93,8 @@ namespace Ghostpunch.OnlyDown
 
                     spriteGO.transform.parent = sandParent;
                     spriteGO.transform.localPosition = new Vector3(x, y, 1f);
+
+                    spriteGO.AddComponent<BoxCollider>();
 
                     x += sandSprite.bounds.size.x;
                     ++i;
