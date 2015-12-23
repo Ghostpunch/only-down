@@ -41,7 +41,6 @@ namespace Ghostpunch.OnlyDown
             messageSystem.Unsubscribe<PlayerDigMessage>(OnPlayerDig);
         }
 
-
         private void OnPlayerDig(PlayerDigMessage obj)
         {
             var playerPosition = obj.PlayerPosition;
