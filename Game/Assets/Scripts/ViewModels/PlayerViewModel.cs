@@ -1,4 +1,6 @@
-﻿using Ghostpunch.OnlyDown.Command;
+﻿using System;
+using System.Collections;
+using Ghostpunch.OnlyDown.Command;
 using Ghostpunch.OnlyDown.Messaging;
 using UnityEngine;
 
@@ -24,6 +26,13 @@ namespace Ghostpunch.OnlyDown
         {
             get { return _model; }
             set { Set(() => Model, ref _model, value); }
+        }
+
+        private bool _isDigging = false;
+        public bool IsDigging
+        {
+            get { return _isDigging; }
+            set { Set(() => IsDigging, ref _isDigging, value); }
         }
 
         #endregion
@@ -61,7 +70,11 @@ namespace Ghostpunch.OnlyDown
             {
                 return _onTap ?? (_onTap = new RelayCommand(() =>
                 {
-                    MessageSystem.Default.Broadcast(new PlayerDigMessage());
+                    StartCoroutine(DigOneLevel());
+                    MessageSystem.Default.Broadcast(new PlayerDigMessage
+                    {
+                        PlayerPosition = _transform.position
+                    });
                 }));
             }
         }
@@ -87,9 +100,9 @@ namespace Ghostpunch.OnlyDown
             messageSystem.Unsubscribe<GameStartMessage>(OnGameStart);
         }
 
-        void FixedUpdate()
+        void Update()
         {
-            if (_state == PlayerStates.Playing)
+            if (_state == PlayerStates.Playing && !IsDigging)
             {
                 _transform.Translate(_currentDirection * Model.MoveSpeed * Time.deltaTime);
             }
@@ -99,8 +112,31 @@ namespace Ghostpunch.OnlyDown
 
         private void OnGameStart(GameStartMessage obj)
         {
-            Debug.Log("Switching states to Playing");
+            StartCoroutine(DigOneLevel());
             _state = PlayerStates.Playing;
+        }
+
+        private IEnumerator DigOneLevel()
+        {
+            IsDigging = true;
+
+            var startingPosition = _transform.localPosition;
+            var targetPosition = startingPosition + Vector3.down;
+            var elapsedTime = 0f;
+            var normalizedTime = 1f / Model.FallTime;
+
+            while (elapsedTime < Model.FallTime)
+            {
+                var position = Vector3.Lerp(startingPosition, targetPosition, elapsedTime * normalizedTime);
+
+                _transform.localPosition = position;
+
+                yield return new WaitForEndOfFrame();
+
+                elapsedTime += Time.deltaTime;
+            }
+
+            IsDigging = false;
         }
     }
 }

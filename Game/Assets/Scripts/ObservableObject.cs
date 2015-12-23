@@ -77,7 +77,7 @@ namespace Ghostpunch.OnlyDown
             }
         }
 
-        protected static string GetPropertyName<T>(Expression<Func<T>> propertyExpression)
+        public static string GetPropertyName<T>(Expression<Func<T>> propertyExpression)
         {
             if (propertyExpression == null)
                 throw new ArgumentNullException("propertyExpression");

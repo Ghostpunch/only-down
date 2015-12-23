@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Lean;
+using System.ComponentModel;
 
 namespace Ghostpunch.OnlyDown
 {
@@ -23,11 +24,13 @@ namespace Ghostpunch.OnlyDown
         void OnEnable()
         {
             LeanTouch.OnFingerTap += OnFingerTap;
+            ViewModel.PropertyChanged += PropertyChanged;
         }
 
         void OnDisable()
         {
             LeanTouch.OnFingerTap -= OnFingerTap;
+            ViewModel.PropertyChanged -= PropertyChanged;
         }
 
         private void OnFingerTap(LeanFinger finger)
@@ -45,6 +48,16 @@ namespace Ghostpunch.OnlyDown
         {
             if (other.tag == Tags.Finish)
                 ViewModel.OnScrollPointHit.Execute(other);
+        }
+
+        private void PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var isDiggingPropertyName = ObservableObject.GetPropertyName(() => ViewModel.IsDigging);
+
+            if (e.PropertyName == isDiggingPropertyName)
+            {
+                // probably switch to a digging animation
+            }
         }
 
         void OnValidate()

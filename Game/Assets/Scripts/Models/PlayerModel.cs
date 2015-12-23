@@ -12,9 +12,9 @@ namespace Ghostpunch.OnlyDown
         [SerializeField]
         private float _moveSpeed = 5f;
         [SerializeField]
-        private float _fallSpeed = 5f;
+        private float _fallTime = 1f;
 
         public float MoveSpeed { get { return _moveSpeed; } }
-        public float FallSpeed { get { return _fallSpeed; } }
+        public float FallTime { get { return _fallTime; } }
     }
 }
