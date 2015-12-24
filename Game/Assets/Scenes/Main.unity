@@ -107,14 +107,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1139145264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d796a47221059f740a0888859a93fe25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _scenes:
-  - {fileID: 102900000, guid: d37d5325d421b66488824d1fc5f6e62e, type: 3}
-  - {fileID: 102900000, guid: 78e4030713a13a242877952101b79010, type: 3}
+  - Menu
+  - Game
 --- !u!4 &1139145266
 Transform:
   m_ObjectHideFlags: 0
