@@ -49,6 +49,7 @@ namespace Ghostpunch.OnlyDown
 
             if (Physics.Raycast(positionToCheckForTile, Vector3.forward, out hit, 10f))
             {
+                // TODO: Eventually, this needs to be refactored to use a factory
                 Destroy(hit.transform.gameObject);
             }
         }
@@ -85,6 +86,7 @@ namespace Ghostpunch.OnlyDown
                         break;
                     }
 
+                    // TODO: Eventually, this needs to be refactored to use a factory
                     var sandSprite = spriteAtlas.GetSprite(spriteName);
                     var spriteGO = new GameObject(spriteName, typeof(SpriteRenderer));
                     var spriteRenderer = spriteGO.GetComponent<SpriteRenderer>();

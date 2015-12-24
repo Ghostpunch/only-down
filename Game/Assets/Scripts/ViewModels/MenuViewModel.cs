@@ -25,7 +25,7 @@ namespace Ghostpunch.OnlyDown
             {
                 return _onRestartGame ?? (_onRestartGame = new RelayCommand(() =>
                 {
-                    MessageSystem.Default.Broadcast(new GameStartMessage());
+                    MessageSystem.Default.Broadcast(new GameRestartMessage());
                     gameObject.SetActive(false);
                 }));
             }

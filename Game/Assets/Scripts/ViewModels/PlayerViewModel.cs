@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Ghostpunch.OnlyDown
 {
-    public class PlayerViewModel : ObservableObject
+    public class PlayerViewModel : ObservableObject, IInvincibilityHandler
     {
         private enum PlayerStates
         {
@@ -35,6 +35,13 @@ namespace Ghostpunch.OnlyDown
             set { Set(() => IsDigging, ref _isDigging, value); }
         }
 
+        private bool _isInvincible = false;
+        public bool IsInvincible
+        {
+            get { return _isInvincible; }
+            set { Set(() => IsInvincible, ref _isInvincible, value); }
+        }
+
         #endregion
 
         #region Commands
@@ -59,6 +66,23 @@ namespace Ghostpunch.OnlyDown
                 return _onScrollPointHit ?? (_onScrollPointHit = new RelayCommand<Collider>(collider =>
                 {
 
+                }));
+            }
+        }
+
+        private RelayCommand<GameObject> _onPickUpItem;
+        public RelayCommand<GameObject> OnPickUpItem
+        {
+            get
+            {
+                return _onPickUpItem ?? (_onPickUpItem = new RelayCommand<GameObject>(item =>
+                {
+                    var messageSystem = MessageSystem.Default;
+                    messageSystem.Broadcast(new PlayerPickUpItemMessage
+                    {
+                        Player = this,
+                        ItemPickedUp = item
+                    });
                 }));
             }
         }
@@ -138,5 +162,23 @@ namespace Ghostpunch.OnlyDown
 
             IsDigging = false;
         }
+
+        #region IInvinsibilityHandler Implementation
+
+        public void HandleInvincibility(float time)
+        {
+            StartCoroutine(HandleInvincibilityCR(time));
+        }
+
+        private IEnumerator HandleInvincibilityCR(float time)
+        {
+            IsInvincible = true;
+
+            yield return new WaitForSeconds(time);
+
+            IsInvincible = false;
+        }
+
+        #endregion
     }
 }

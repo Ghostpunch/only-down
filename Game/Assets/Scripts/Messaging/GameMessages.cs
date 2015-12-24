@@ -12,4 +12,9 @@ namespace Ghostpunch.OnlyDown
         public Vector3 PlayerPosition { get; set; }
     }
     public class PlayerHitScrollPointMessage : MessageBase { }
+    public class PlayerPickUpItemMessage : MessageBase
+    {
+        public GameObject ItemPickedUp { get; set; }
+        public PlayerViewModel Player { get; set; }
+    }
 }

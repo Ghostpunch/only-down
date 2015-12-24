@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace Ghostpunch.OnlyDown.Editor
 {
     public class TexturePackerJsonHashed : EditorWindow
     {
-        private Object _textObject;
+        private UnityEngine.Object _textObject;
         private Texture2D _textureObject;
         private SpriteAlignment _pivot = SpriteAlignment.Center;
         private Vector2 _customPivot = new Vector2(0.5f, 0.5f);
@@ -58,23 +59,23 @@ namespace Ghostpunch.OnlyDown.Editor
 
                 // Parse the pivot point
                 var customPivot = new Vector2(
-                    System.Convert.ToSingle(spritePivot["x"]), 
-                    System.Convert.ToSingle(spritePivot["y"]));
+                    Convert.ToSingle(spritePivot["x"]), 
+                    Convert.ToSingle(spritePivot["y"]));
 
-                var spriteY = System.Convert.ToSingle(spriteFrame["y"]);
-                var spriteHeight = System.Convert.ToSingle(spriteFrame["h"]);
+                var spriteY = Convert.ToSingle(spriteFrame["y"]);
+                var spriteHeight = Convert.ToSingle(spriteFrame["h"]);
                 // create the sprite rect
                 var spriteRect = new Rect(
-                    System.Convert.ToSingle(spriteFrame["x"]),
+                    Convert.ToSingle(spriteFrame["x"]),
                     imageHeight - spriteY - spriteHeight,
-                    System.Convert.ToSingle(spriteFrame["w"]),
+                    Convert.ToSingle(spriteFrame["w"]),
                     spriteHeight);
 
                 var spriteData = new SpriteMetaData()
                 {
                     name = imageName,
                     rect = spriteRect,
-                    alignment = (int)SpriteAlignment.Custom,
+                    alignment = (int)_pivot,
                     pivot = customPivot
                 };
 
@@ -85,7 +86,8 @@ namespace Ghostpunch.OnlyDown.Editor
             if (spriteList.Count > 0)
             {
                 // Import texture
-                TextureImporter importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(_textureObject)) as TextureImporter;
+                var assetPath = AssetDatabase.GetAssetPath(_textureObject);
+                TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
 
                 // Add spritesheets
                 importer.spritesheet = spriteList.ToArray();
@@ -94,8 +96,16 @@ namespace Ghostpunch.OnlyDown.Editor
                 importer.textureType = TextureImporterType.Sprite;
                 importer.spriteImportMode = SpriteImportMode.Multiple;
 
+                try
+                {
+
                 // Import and force update
-                AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(_textureObject), ImportAssetOptions.ForceUpdate);
+                AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.Default);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e.Message);
+                }
             }
         }
     }

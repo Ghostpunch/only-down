@@ -14,6 +14,9 @@ namespace Ghostpunch.OnlyDown
         /// </summary>
         public PlayerModel _settings;
 
+        [SerializeField]
+        private GameObject _invincibilityParticleSystem = null;
+
         protected override void Awake()
         {
             base.Awake();
@@ -48,15 +51,22 @@ namespace Ghostpunch.OnlyDown
         {
             if (other.tag == Tags.Finish)
                 ViewModel.OnScrollPointHit.Execute(other);
+            if (other.tag == Tags.PowerUp)
+                ViewModel.OnPickUpItem.Execute(other.gameObject);
         }
 
         private void PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             var isDiggingPropertyName = ObservableObject.GetPropertyName(() => ViewModel.IsDigging);
+            var isInvinciblePropertyName = ObservableObject.GetPropertyName(() => ViewModel.IsInvincible);
 
             if (e.PropertyName == isDiggingPropertyName)
             {
                 // probably switch to a digging animation
+            }
+            else if (e.PropertyName == isInvinciblePropertyName)
+            {
+                _invincibilityParticleSystem.SetActive(ViewModel.IsInvincible);
             }
         }
 
