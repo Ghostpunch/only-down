@@ -1,0 +1,5 @@
+<TextureAtlas imagePath="{{texture.fullName}}">
+{% for sprite in allSprites %}
+	<SubTexture name="{{sprite.fullName}}" x="{{sprite.frameRect.x}}" y="{{sprite.frameRect.x}}" width="{{sprite.frameRect.width}}" height="{{sprite.frameRect.height}}"/>
+{% endfor %}
+</TextureAtlas>

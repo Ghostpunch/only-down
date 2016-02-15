@@ -1,0 +1,21 @@
+{"frames": {
+
+"InvincibleShell.png":
+{
+	"frame": {"x":0,"y":0,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "PowerUps.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d0772a8459c781b0be0b17cc7ac6fc6f:a34bf58766382fce96da852ecd3025f8:188be21a0cf59ab330cf6ee59ddbd59c$"
+}
+}

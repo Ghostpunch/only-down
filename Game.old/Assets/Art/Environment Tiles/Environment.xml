@@ -1,0 +1,24 @@
+<TextureAtlas imagePath="Environment.png">
+	<SubTexture name="1x1.png" x="258" y="0" width="256" height="256"/>
+	<SubTexture name="1x2.png" x="0" y="0" width="256" height="256"/>
+	<SubTexture name="1x3.png" x="0" y="258" width="256" height="256"/>
+	<SubTexture name="1x4.png" x="258" y="258" width="256" height="256"/>
+	<SubTexture name="1x5.png" x="258" y="516" width="256" height="256"/>
+	<SubTexture name="1x6.png" x="0" y="516" width="256" height="256"/>
+	<SubTexture name="Left0.png" x="754" y="0" width="236" height="256"/>
+	<SubTexture name="Left1.png" x="1207" y="516" width="220" height="256"/>
+	<SubTexture name="Left2.png" x="985" y="258" width="223" height="256"/>
+	<SubTexture name="Left3.png" x="1217" y="0" width="219" height="256"/>
+	<SubTexture name="Left4.png" x="1650" y="0" width="210" height="256"/>
+	<SubTexture name="Left5.png" x="1431" y="258" width="219" height="256"/>
+	<SubTexture name="Left6.png" x="754" y="516" width="229" height="256"/>
+	<SubTexture name="Left7.png" x="516" y="0" width="236" height="256"/>
+	<SubTexture name="Right0.png" x="516" y="516" width="236" height="256"/>
+	<SubTexture name="Right1.png" x="985" y="516" width="220" height="256"/>
+	<SubTexture name="Right2.png" x="992" y="0" width="223" height="256"/>
+	<SubTexture name="Right3.png" x="1210" y="258" width="219" height="256"/>
+	<SubTexture name="Right4.png" x="1438" y="0" width="210" height="256"/>
+	<SubTexture name="Right5.png" x="1429" y="516" width="219" height="256"/>
+	<SubTexture name="Right6.png" x="754" y="258" width="229" height="256"/>
+	<SubTexture name="Right7.png" x="516" y="258" width="236" height="256"/>
+</TextureAtlas>

@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: da36fc2d06f6c6d4d86cf236c9169d47
+timeCreated: 1446220955
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Environment
+    21300002: Environment
+    21300004: Environment
+    21300006: Environment
+    21300008: Environment
+    21300010: Environment
+    21300012: Environment
+    21300014: Environment
+    21300016: Environment
+    21300018: Environment
+    21300020: Environment
+    21300022: Environment
+    21300024: Environment
+    21300026: Environment
+    21300028: Environment
+    21300030: Environment
+    21300032: Environment
+    21300034: Environment
+    21300036: Environment
+    21300038: Environment
+    21300040: Environment
+    21300042: Environment
+    21300044: Environment
+    21300046: Environment
+    21300048: Environment
+    21300050: Environment
+    21300052: Environment
+    21300054: Environment
+    21300056: Environment
+    21300058: Environment
+    21300060: Environment
+    21300062: Environment
+    21300064: Environment
+    21300066: Environment
+    21300068: Environment
+    21300070: Environment
+    21300072: Environment
+    21300074: Environment
+    21300076: Environment
+    21300078: Environment
+    21300080: Environment
+    21300082: Environment
+    21300084: Environment
+    21300086: Environment
+    21300088: Environment
+    21300090: Environment
+    21300092: Environment
+    21300094: Ball.png
+    21300096: Soda Bucket.png
+    21300098: NewInvincibleShell.png
+    21300100: Sand_1_1.png
+    21300102: Sand_1_10.png
+    21300104: Sand_1_13.png
+    21300106: Rock1.png
+    21300108: Sand_1_11.png
+    21300110: Sand_1_12.png
+    21300112: Sand_1_2.png
+    21300114: Rock3.png
+    21300116: Sand_1_3.png
+    21300118: Sand_1_6.png
+    21300120: Wall_Right_7.png
+    21300122: Sand_1_5.png
+    21300124: Sand_1_4.png
+    21300126: Rock4.png
+    21300128: Sand_1_7.png
+    21300130: Rock2.png
+    21300132: Sand_1_14.png
+    21300134: Wall_Left_5.png
+    21300136: Sand_1_9.png
+    21300138: Wall_Left_6.png
+    21300140: Wall_Left_0.png
+    21300142: Wall_Right_0.png
+    21300144: Wall_Left_2.png
+    21300146: Wall_Left_4.png
+    21300148: Wall_Left_3.png
+    21300150: Wall_Left_1.png
+    21300152: Wall_Right_1.png
+    21300154: Wall_Left_7.png
+    21300156: Wall_Right_2.png
+    21300158: Sand_1_8.png
+    21300160: Wall_Right_4.png
+    21300162: Wall_Right_6.png
+    21300164: Wall_Right_5.png
+    21300166: Wall_Right_3.png
+    21300168: Sand_5_15.png
+    21300170: Sand_6_15.png
+    21300172: Sand_8_15.png
+    21300174: Sand_7_15.png
+    21300176: Sand_4_15.png
+    21300178: Sand_3_15.png
+    21300180: Sand_1_15.png
+    21300182: Sand_2_15.png
+    21300184: Chair.png
+    21300186: Surfboard.png
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Ball.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1913
+        width: 119
+        height: 133
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Soda Bucket.png
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 1910
+        width: 122
+        height: 136
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NewInvincibleShell.png
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_1.png
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_10.png
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_13.png
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rock1.png
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_11.png
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_12.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_2.png
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rock3.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_3.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 500
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_6.png
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_7.png
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_5.png
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_4.png
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rock4.png
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_7.png
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rock2.png
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 758
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_14.png
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1016
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_5.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_9.png
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_6.png
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_0.png
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_0.png
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_2.png
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_4.png
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_3.png
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_1.png
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 1790
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_1.png
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Left_7.png
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_2.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1274
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_8.png
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_4.png
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_6.png
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_5.png
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wall_Right_3.png
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1532
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_5_15.png
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_6_15.png
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 242
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_8_15.png
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_7_15.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 242
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_4_15.png
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_3_15.png
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1_15.png
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_2_15.png
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 500
+        width: 257
+        height: 256
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Chair.png
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 234
+        width: 268
+        height: 264
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Surfboard.png
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 147
+        width: 291
+        height: 351
+      alignment: 9
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
